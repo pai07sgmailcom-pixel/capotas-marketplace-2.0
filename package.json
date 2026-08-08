@@ -1,0 +1,29 @@
+{
+  "name": "mercado-capotas-a01",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "16.3.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "lucide-react": "latest",
+    "clsx": "latest",
+    "tailwind-merge": "latest",
+    "@supabase/supabase-js": "latest",
+    "@supabase/ssr": "latest"
+  },
+  "devDependencies": {
+    "typescript": "5.7.3",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "tailwindcss": "^4",
+    "@tailwindcss/postcss": "^4"
+  }
+}

@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+/* Paleta do projeto — navy (confiança/institucional) + brand laranja (destaque) */
+@theme {
+  --color-navy-50: #f4f6fa;
+  --color-navy-100: #e5e9f2;
+  --color-navy-200: #cdd6e8;
+  --color-navy-400: #8a97b3;
+  --color-navy-500: #5c6a8c;
+  --color-navy-800: #1c2745;
+  --color-navy-900: #10182e;
+  --color-navy-950: #0a0f20;
+
+  --color-brand-500: #e8722a;
+  --color-brand-600: #cc5f1c;
+}
+
+body {
+  font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+}
