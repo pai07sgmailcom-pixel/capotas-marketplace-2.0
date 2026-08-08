@@ -14,3 +14,17 @@ export async function fetchProducts(): Promise<Product[]> {
   }
   return data as Product[];
 }
+
+export async function fetchProductBySlug(slug: string): Promise<Product | null> {
+  const { data, error } = await supabase
+    .from("products")
+    .select("*")
+    .eq("slug", slug)
+    .single();
+
+  if (error) {
+    console.error("Erro ao buscar produto:", error.message);
+    return null;
+  }
+  return data as Product;
+}

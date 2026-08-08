@@ -1,10 +1,13 @@
 import { ProductCard } from "@/components/product-card";
 import { Select } from "@/components/ui/field";
-import { CATEGORIES, MOCK_PRODUCTS } from "@/lib/data";
+import { CATEGORIES } from "@/lib/data";
+import { fetchProducts } from "@/lib/products";
 
 // TODO(preencher depois): ler searchParams (categoria, busca, ordenação) e
-// filtrar via query real ao Supabase em vez de MOCK_PRODUCTS.
-export default function ProdutosPage() {
+// aplicar filtro real na query do Supabase em vez de filtrar em memória.
+export default async function ProdutosPage() {
+  const products = await fetchProducts();
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
@@ -28,11 +31,17 @@ export default function ProdutosPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-        {MOCK_PRODUCTS.map((p) => (
-          <ProductCard key={p.id} product={p} />
-        ))}
-      </div>
+      {products.length === 0 ? (
+        <p className="text-sm text-navy-400">
+          Nenhum produto publicado ainda.
+        </p>
+      ) : (
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          {products.map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
